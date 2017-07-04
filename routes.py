@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request,session,redirect,url_for
-from model import db, User,Place
-from forms import SignupForm,LoginForm,AddressForm
+from model import db, User,Place,UserInfo
+from forms import SignupForm,LoginForm,AddressForm,UserInfoForm
 
 
 app = Flask(__name__)
@@ -17,12 +17,6 @@ def index():
 @app.route("/about")
 def about():
   return render_template("about.html")
-  
-
-@app.route("/user_info")
-def user_info():
-	return render_template("user_info.html")
-
 
 
 @app.route("/signup", methods=['GET', 'POST'])
@@ -44,6 +38,29 @@ def signup():
 	elif request.method == 'GET':
 		return render_template('signup.html', form=form) #pass form to signup.html  
 
+@app.route("/userInfo", methods=['GET','POST'])
+def user_info():
+	"""
+		Grab user's profile information into the database
+		user sign up page, user must log in successfully before getting to this page
+	"""
+
+	if not ('email' in session):
+		return redirect(url_for('login'))
+	form=UserInfoForm()
+	if request.method=='POST':
+		userInfo=UserInfo(form.nickName.data, form.email.data, form.phone.data, form.city.data, 
+			form.state.data, form.zipcode.data, form.education.data, form.sports.data,form.arts.data,
+			form.travel.data,form.music.data,form.reading.data,form.gardening.data, form.nature.data,
+			form.snowboard.data,form.food.data)
+		db.session.add(userInfo) #add returned data to user table in the database 
+		db.session.commit()
+		return redirect(url_for('home'))
+
+	elif request.method=='GET':
+		return render_template('user_info.html',form=form)
+		
+
 @app.route("/login",methods=['GET','POST'])
 def login():
 	if('email' in session):
@@ -64,6 +81,9 @@ def login():
 
 	elif request.method=='GET':
 		return render_template('login.html', form=form)
+
+
+
 
 
 

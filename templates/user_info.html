@@ -21,28 +21,32 @@
     <div id="mainArticle">
       <div id="contact">
         <p>Would you like more information? Please drop us a line, we'd love to hear from you!</p>
-        <form id="frmContact" name="frmContact" method="post" action="thanks.htm">
+        <form id="frmContact" name="frmContact" method="POST" action="/userInfo">
           <fieldset id="personalInfo">
             <legend><strong>Personal Information</strong></legend>
             <p>
-              <label for="name">Name</label>
-              <input name="name" type="text" class="text" id="name" tabindex="100" />
+              {{form.nickName.label}}
+              {{form.nickName}}
+              
             </p>
             <p>
-              <label for="email">Email</label>
-              <input name="email" type="text" class="text" id="email" tabindex="110" />
+              {{form.email.label}}
+              {{form.email}}
             </p>
             <p>
-              <label for="phone">Phone</label>
-              <input name="phone" type="text" class="text" id="phone" tabindex="130" />
+              {{form.phone.label}}
+              {{form.phone}}
             </p>
+
             <p>
-              <label for="address">City</label>
-              <input name="address" type="text" class="text" id="address" tabindex="140" />
+              {{form.city.label}}
+              {{form.city}}
             </p>
+            <!--
             <p>
               <label for="state">State</label>
               <select name="state" id="state" tabindex="150">
+                <option value="None"> None </option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -94,22 +98,20 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
               </select>
+              -->
+              {{form.state.label}}
+              {{form.state}}
             </p>
             <p>
-              <label for="zip">Zip Code</label>
-              <input name="zip" type="text" class="text" id="zip" tabindex="160" />
+              {{form.zipcode.label}}
+              {{form.zipcode}}
             </p>
 
              </fieldset>
 
             <p>
-            	<label for='College'>College</label>
-            	<select name="college" id="college" tabindex="170">
-            	 <option value="harvard">Harvard University</option>
-            	 <option value= "mit"> Massachusetts Institute of Technology</option>
-            	 <option value="northeastern univeristy"> Northeastern University</option>
-            	 <option value="Boston University"> Boston University</option>
-               </select>
+                {{form.education.label}}
+               {{form.education}}
 
             </p>
 
@@ -120,49 +122,49 @@
             <p>Tell us more about what fields are you interested</p>
             <div class="col1">
               <p>
-<input type="checkbox" name="sports" id="sports" tabindex="170" />
-              <label for="Sports">Sports</label>
+              {{form.sports.label}}
+              {{form.sports}}
 </p>
               <p>
-<input type="checkbox" name="arts" id="Arts" tabindex="180" />
-              <label for="arts">Arts</label>
+              {{form.arts.label}}
+              {{form.arts}}
 </p>
               <p>
-<input type="checkbox" name="travel" id="travel" tabindex="190" />
-              <label for="travel">Travel</label>
+              {{form.travel.label}}
+              {{form.travel}}
 </p>
             </div>
             <div class="col2">
               <p>
-<input type="checkbox" name="musics" id="musics" tabindex="210" />
-              <label for="musics">Musics</label>
+              {{form.music.label}}
+              {{form.music}}
 </p>
              <p>
- <input type="checkbox" name="readings" id="readings" tabindex="220" />
-              <label for="readings">Readings</label>
+             {{form.reading.label}}
+             {{form.reading}}
 </p>
              <p>
- <input type="checkbox" name="gardening" id="gardening" tabindex="230" />
-              <label for="gardening">Gardening</label>
+             {{form.gardening.label}}
+             {{form.gardening}}
 </p>
             </div>
             <div class="col3">
               <p>
-<input type="checkbox" name="nature" id="nature" tabindex="240" />
-              <label for="nature">Nature</label>
+              {{form.nature.label}}
+              {{form.nature}}
 </p>
               <p>
-<input type="checkbox" name="snowboard" id="snowboard" tabindex="250" />
-              <label for="snowboard">Snowboard</label>
+              {{form.snowboard.label}}
+              {{form.snowboard}}
 </p>
              <p>
- <input type="checkbox" name="food" id="food" tabindex="260" />
-              <label for="food">Food</label>
+             {{form.food.label}}
+             {{form.food}}
 </p>
             </div>
             <p class="clearBoth">
-              <label for="comments">Comments</label><br />
-              <textarea name="comments2" id="comments" cols="45" rows="5" tabindex="270"></textarea>
+              {{form.comments.label}}
+              {{form.comments}}
             </p>
             <p>Would you like to receive our monthly tour specials newsletter? No, we don't spam or share your information with anyone else. Read our <a href="privacy.htm">privacy policy</a>.</p>
             <p>
@@ -186,9 +188,7 @@
  <div id="sidebar">
     <div id="specials" class="callOut">
       <h1>People just like you </h1>
-      <h2 class="top"><img src="_images/calm_bug.gif" width="75" height="75" alt="California Calm" />California Calm</h2>
-      <p>Day Spa Package <br />
-        <a href="tours/tour_detail_cycle.htm">$250</a> </p>
+
 
     </div>
 

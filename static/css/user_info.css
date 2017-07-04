@@ -124,7 +124,7 @@ ul#baseNav li a{
 
 
 #mainContent form#frmContact .col1 {
-	text-align: left;
+	text-align: right;
 	float: left;
 	padding-left: 20px;
 	margin-right: 20px;
@@ -133,7 +133,7 @@ ul#baseNav li a{
 
 #mainContent form#frmContact .col2, #mainContent form#frmContact .col3 {
 	float: left;
-	text-align: left;
+	text-align: right;
 	margin-right: 20px;
 	width: 170px;
 }

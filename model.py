@@ -27,6 +27,47 @@ class User(db.Model):
 	def check_password(self,password):
 		return check_password_hash(self.pwdhash, password)
 
+class UserInfo(db.Model):
+  """represent UserInfo table in the database"""
+  __tablename__='userinfo'
+  uid = db.Column(db.Integer,primary_key=True) #primary key is required with salAlchemy
+  nickname=db.Column(db.String(100))
+  email=db.Column(db.String(120))
+  phone=db.Column(db.String(15))
+  city=db.Column(db.String(100))
+  state=db.Column(db.String(100))
+  zipcode=db.Column(db.String(10))
+  education=db.Column(db.String(100))
+  sports=db.Column(db.Boolean)
+  arts=db.Column(db.Boolean)
+  travel=db.Column(db.Boolean)
+  music=db.Column(db.Boolean)
+  reading=db.Column(db.Boolean)
+  gardening=db.Column(db.Boolean)
+  nature=db.Column(db.Boolean)
+  snowboard=db.Column(db.Boolean)
+  food=db.Column(db.Boolean)
+  def __init__(self, nickname,email,phone,city,state,zipcode,education,sports,arts,travel,music,reading,gardening,nature,snowboard,food):
+    self.nickname=nickname
+    self.email=email
+    self.phone=phone
+    self.city=city
+    self.state=state
+    self.zipcode=zipcode
+    self.education=education
+    self.sports=sports
+    self.arts=arts
+    self.travel=travel
+    self.music=music
+    self.reading=reading
+    self.gardening=gardening
+    self.nature=nature
+    self.snowboard=snowboard
+    self.food=food
+
+
+
+
 # p = Place()
 # places = p.query("1600 Amphitheater Parkway Mountain View CA")
 class Place(object):

@@ -1,5 +1,5 @@
 from flask_wtf import Form 
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, IntegerField, PasswordField, SubmitField,SelectField,TextAreaField,BooleanField
 from wtforms.validators import DataRequired, Email, Length
 
 class SignupForm(Form):
@@ -17,3 +17,23 @@ class LoginForm(Form):
 class AddressForm(Form):
 	address=StringField('Address',validators=[DataRequired('Please enter address')])
 	submit=SubmitField("Submit")
+
+class UserInfoForm(Form):
+	nickName=StringField("Nick Name")
+	email = StringField("Email")
+	phone=IntegerField("Phone")
+	city= StringField("City")
+	state = SelectField("State", choices=[('Al','Alabama'),('AK','Alaska'),('AZ','Arizona')])
+	zipcode= StringField("Zipcode")
+	education=SelectField("College",choices=[('harvard','Harvard University'),('MIT','Massachusetts Institute of Technology'),('NEU','Northeastern University')])
+
+	sports=BooleanField("Sports")
+	arts=BooleanField("Arts")
+	travel=BooleanField("Travel")
+	music=BooleanField("Music")
+	reading=BooleanField("Reading")
+	gardening=BooleanField("Gardening")
+	nature=BooleanField("Nature")
+	snowboard=BooleanField("Snowboard")
+	food=BooleanField("Food")
+	comments=TextAreaField("Comments")
