@@ -5,7 +5,8 @@ from forms import SignupForm,LoginForm,AddressForm,UserInfoForm
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql://localhost/userlogin'
+#app.config['SQLALCHEMY_DATABASE_URI']= 'postgresql://localhost/userlogin'
+app.config.from_object('config')
 db.init_app(app)
 
 app.secret_key="development-key" 
@@ -107,6 +108,12 @@ def home():
 
 	elif request.method=='GET':
 		return render_template("home.html", form=form, my_coordinates=my_coordinates,places=places)
+
+@app.route("/profile/<email>",methods=['GET','POST'])
+def profile():
+	if 'email' not in session:
+		return redirect(url_for('login'))
+
 
 @app.route("/logout")
 def logout():

@@ -27,6 +27,18 @@ class User(db.Model):
 	def check_password(self,password):
 		return check_password_hash(self.pwdhash, password)
 
+
+class UserPost(db.Model):
+  """Represent userpost table, need to finish the implementaiton 
+     need to create table in database """
+  __tablename__='userpost'
+  id= db.Column(db.Integer, primary_key=True)
+  body = db.Column(db.String(140))
+  timestamp=db.Column(db.DateTime)
+  user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+
+
+
 class UserInfo(db.Model):
   """represent UserInfo table in the database"""
   __tablename__='userinfo'
@@ -64,6 +76,7 @@ class UserInfo(db.Model):
     self.nature=nature
     self.snowboard=snowboard
     self.food=food
+
 
 
 
