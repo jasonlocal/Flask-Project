@@ -1,0 +1,154 @@
+html, body{
+	margin: 0px;
+	padding: 0px;
+}
+
+body{
+	text-align: center;
+	font: 100% Georgia, "Times New Roman", Times, serif;
+	/*background: #e1d8b9 url(../img/links.jpg) repeat-x; need to update background image to fit in body*/
+	margin-top: 50px;
+}
+
+
+p{
+	color: #666;
+}
+
+a{
+	color: green;
+	text-decoration: none;
+}
+
+
+a:hover{
+	color: #cb7d20;
+	border-bottom: 1px dashed #cb7d20; /*adding dash under the a tag to increase readability*/
+}
+
+.callOut{
+	background: lightblue;
+	padding: 15px;
+	margin-bottom: 50px;
+}
+.callOut h1{
+	font-size: 2.0em;
+	color: #193742;
+	margin-bottom: 1em;
+	padding-bottom: .25em;
+}
+
+#wrapper{
+	position: relative;
+	padding: 0;
+	width: 900px;
+	margin: 0 auto;
+	background: #fff;
+
+}
+
+
+
+#header{
+	width:900px;
+	margin-bottom: 50px;
+	text-align: center;
+	border-bottom: 2px solid #193742;
+
+}
+
+#mainContent{
+	padding-right: 25px;
+	float: right;
+	width: 608px;
+	margin-bottom: 45px;
+}
+
+
+#sidebar{
+	float: left;
+	clear: left;
+	width: 250px;
+}
+
+
+#footer{
+	width: 870px;
+	clear: both;
+	padding: 45px 30px 30px;
+	margin-top: 45px;
+}
+
+/* base navigation*/
+ul#baseNav{
+list-style: none;
+float: left;
+margin:0;
+padding: 0;
+margin-bottom: 50px;
+clear: left;
+margin-top: 100px;
+}
+ul#baseNav li{
+	margin: 10px;
+	padding: 0;
+}
+
+ul#baseNav li a{
+	display: block;
+	width: 200px;
+	height: 60px;
+}
+
+#mainContent h1#pageID{
+	color: #193742;
+	font-size:2em;
+	font-weight: bold;
+	border-bottom: 2px solid #193742;
+
+}
+
+
+/* contact form */
+
+#mainContent form#frmContact input.text {
+	width: 250px;
+}
+
+#mainContent form#frmContact fieldset {
+	width: 580px;
+	margin: 0;
+	padding: 0;
+	background: #c9cb00;
+}
+
+
+#mainContent form#frmContact .col1 {
+	text-align: right;
+	float: left;
+	padding-left: 20px;
+	margin-right: 20px;
+	width: 160px;
+}
+
+#mainContent form#frmContact .col2, #mainContent form#frmContact .col3 {
+	float: left;
+	text-align: right;
+	margin-right: 20px;
+	width: 170px;
+}
+
+
+#mainContent form#frmContact div p {
+	margin: 0 0 .5em 0;
+}
+#mainContent form#frmContact div label {
+	font-size: .9em;
+	display: inline;
+	float: none;
+}
+#mainContent form#frmContact textarea {
+	width: 500px;
+	height: 150px;
+}
+
