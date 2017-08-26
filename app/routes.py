@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request,session,redirect,url_for,flash,g,request,abort
 from model import User,Place,UserInfo
-from forms import SignupForm,LoginForm,AddressForm,UserInfoForm
+from forms import SignupForm,LoginForm,AddressForm,UserInfoForm,EditForm
 from app import app, db,lm
 from flask_login import login_user,logout_user,current_user,login_required
+from datetime import datetime 
+
 
 
 #app = Flask(__name__)
@@ -23,7 +25,13 @@ def load_user(uid):
 def before_request():
 	""" store user from current seesion to g global, for later aceess on user info """
 	g.user = current_user 
+	if g.user.is_authenticated:
+		g.user.last_seen=datetime.utcnow()
+		db.session.add(g.user)
+		db.session.commit()
+
 def is_loggedin():
+	"""check if the user has already logged in """
 	return g.user is not None and g.user.is_authenticated
 
 
@@ -48,7 +56,8 @@ def signup():
 		if form.validate() == False:
 			return render_template("signup.html",form=form)
 		else:
-			newuser = User(form.first_name.data, form.last_name.data, form.email.data, form.password.data)
+			account_name=User.make_unique_account_name(form.account_name.data.strip()) # get unique account_name to eliminate the duplicate
+			newuser = User(account_name, form.first_name.data, form.last_name.data, form.email.data, form.password.data)
 			db.session.add(newuser) #add returned data to user table in the database 
 			db.session.commit()
 
@@ -113,9 +122,6 @@ def login():
 
 
 
-
-
-
 @app.route("/home",methods=['GET','POST'])
 def home():
 	#if 'email' not in session: # make sure if user is not logged in, he cant access to the home page 
@@ -139,13 +145,13 @@ def home():
 	elif request.method=='GET':
 		return render_template("home.html", form=form, my_coordinates=my_coordinates,places=places)
 
-@app.route("/profile/<firstname>")
-def profile(firstname):
+@app.route("/profile/<account_name>")
+def profile(account_name):
 	if not is_loggedin():
 		return redirect(url_for('login'))
-	user= User.query.filter_by(firstname=firstname).first()
+	user= User.query.filter_by(account_name=account_name).first()
 	if user == None:
-		flash('User %s not foound.' % firstname)
+		flash('User %s not foound.' % account_name)
 		return redirect(url_for('home'))
 	posts=[
 	{'author': user, 'body' : 'Test post #1'},
@@ -155,6 +161,21 @@ def profile(firstname):
 							user=user,
 							posts=posts)
 
+@app.route('/edit', methods=['GET', 'POST'])
+def edit():
+	if not is_loggedin():
+		return redirect(url_for('login'))
+	form=EditForm()
+	if form.validate_on_submit():
+		g.user.about_me=form.about_me.data
+		db.session.add(g.user)
+		db.session.commit()
+		return redirect(url_for('profile',account_name=g.user.account_name))
+	else:
+		form.about_me.data=g.user.about_me
+
+	return render_template('edit.html', form=form)
+
 
 @app.route("/logout")
 def logout():
@@ -163,6 +184,21 @@ def logout():
 	logout_user()
 	#session.pop('email',None) 
 	return redirect(url_for('index'))
+
+@app.errorhandler(404)
+def not_found_error(error):
+	return render_template("404.html"), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+	db.session.rollback()
+	return render_template("500.html"), 500
+
+
+
+
+
+
 #if __name__ == "__main__":
   #app.run(debug=True)
 

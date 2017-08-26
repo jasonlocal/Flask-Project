@@ -14,13 +14,18 @@
   <body>
     <header>
       <div class="container">
-        <h1 class="title">Group Chats</h1>
+        <h1 class="title">Invite</h1>
       </div>
 
       <div class= "mainNavigation">
-      <a href="/home"> Home </a>
-      <a href="/userInfo"> User Information </a>
-      <a href="/about"> About </a>
+      |<a href="{{url_for('home')}}"> Home </a>
+      |<a href="{{url_for('user_info')}}"> User Information </a>
+      |<a href="{{url_for('about')}}"> About </a>
+      |<a href="{{url_for('login')}}"> Login </a>
+      {% if g.user.is_authenticated %}
+      | <a href="{{url_for('profile', account_name=g.user.account_name)}}">Profile</a>
+      | <a href = "{{url_for('logout')}}">Logout</a>
+      {% endif %}
       </div>
 
       </div>

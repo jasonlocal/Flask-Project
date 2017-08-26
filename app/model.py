@@ -6,21 +6,50 @@ import geocoder
 import urllib2
 import json
 
-
+# create a auxiliary table to represent followers and folloees in database
+followers = db.Table('followers',
+	db.Column('follower_id',db.Integer,db.ForeignKey('users.uid')),
+	db.Column('followed_id',db.Integer,db.ForeignKey('users.uid')),
+	)
 class User(db.Model):
 	__tablename__ = 'users'
+	account_name= db.Column(db.String(64), unique=True)
 	uid= db.Column(db.Integer, primary_key=True)
 	firstname= db.Column(db.String(100))
 	lastname= db.Column(db.String(100))
 	email= db.Column(db.String(120), unique=True)
 	pwdhash= db.Column(db.String(154))
 	posts= db.relationship('UserPost', backref='author', lazy='dynamic')
+	about_me = db.Column(db.String(140))
+	last_seen= db.Column(db.DateTime)
+	
+	followed=db.relationship('User',
+							  secondary=followers,
+							  primaryjoin=(followers.c.follower_id==uid),
+							  secondaryjoin=(followers.c.followed_id==uid),
+							  backref=db.backref('followers', lazy='dynamic'),
+							  lazy='dynamic')
+	
 
-	def __init__(self, firstname, lastname, email, password):
+	def __init__(self, account_name, firstname, lastname, email, password):
+		self.account_name=account_name
 		self.firstname=firstname.title() # title() preserves capitanle of first letter
 		self.lastname=lastname.title()
 		self.email=email.lower() # map every char to lower case 
 		self.set_password(password) #
+
+	@staticmethod
+	def make_unique_account_name(account_name):
+		""" this function is to change account_name if it is already exsists in database"""
+		if User.query.filter_by(account_name=account_name).first() is None:
+			return account_name
+		version=2
+		while True:
+			new_account_name= account_name + str(version)
+			if User.query.filter_by(account_name=new_account_name).first() is None:
+				break
+			version=version+1
+		return new_account_name
 
 	def set_password(self,password):
 		self.pwdhash=generate_password_hash(password)
