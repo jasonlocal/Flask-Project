@@ -1,0 +1,643 @@
+2017-08-20 11:41:02,583 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-25 12:25:31,701 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-25 12:26:21,672 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 61, in signup
+    db.session.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_account_name_key"
+DETAIL:  Key (account_name)=(kidd) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Kidd', 'pwdhash': 'pbkdf2:sha256:50000$ns2cOd59$616fbbc8cb784154177e372f2e391c511db8171b929d5dea79e5aa82736313f4', 'lastname': u'Chen', 'email': u'hello23@hotmail.com', 'about_me': None, 'account_name': u'kidd', 'last_seen': None}]
+2017-08-25 12:46:56,364 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 61, in signup
+    db.session.add(newuser) #add returned data to user table in the database
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_emial_key"
+DETAIL:  Key (email)=(hello22@hotmail.com) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Sean22', 'pwdhash': 'pbkdf2:sha256:50000$wpZN1b1G$07f0f2cbe3d525532b02b19faffbf587f1478202bdfc0c49a42c2362aa03fe88', 'lastname': u'Scott', 'email': u'hello22@hotmail.com', 'about_me': None, 'account_name': u'sean', 'last_seen': None}]
+2017-08-25 12:52:20,469 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 61, in signup
+    db.session.add(newuser) #add returned data to user table in the database
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_emial_key"
+DETAIL:  Key (email)=(hello22@hotmail.com) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Sean22', 'pwdhash': 'pbkdf2:sha256:50000$5DkvjJzg$ee1f40682dbc9e0b26153f7ac019b8f8d31c15d6d57d61d93df641fa9a6ca0f2', 'lastname': u'Scott', 'email': u'hello22@hotmail.com', 'about_me': None, 'account_name': u'sean', 'last_seen': None}]
+2017-08-25 12:52:42,217 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 61, in signup
+    db.session.add(newuser) #add returned data to user table in the database
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_account_name_key"
+DETAIL:  Key (account_name)=(sean) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Sean22', 'pwdhash': 'pbkdf2:sha256:50000$suA3CNyz$e418b970ac9844ea0194fbc80235f3a3507ffae670678e95c546de4454f9b5cb', 'lastname': u'Scott', 'email': u'hello52@hotmail.com', 'about_me': None, 'account_name': u'sean', 'last_seen': None}]
+2017-08-25 12:53:22,500 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 61, in signup
+    db.session.add(newuser) #add returned data to user table in the database
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_account_name_key"
+DETAIL:  Key (account_name)=(sean) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Sean22', 'pwdhash': 'pbkdf2:sha256:50000$ziKxnnQt$9c40c022473cf620bbbef697491e6eecae54c3a6175a12eef049647e3e10015e', 'lastname': u'Scott', 'email': u'hello52@hotmail.com', 'about_me': None, 'account_name': u'sean', 'last_seen': None}]
+2017-08-25 12:53:35,429 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 61, in signup
+    db.session.add(newuser) #add returned data to user table in the database
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_account_name_key"
+DETAIL:  Key (account_name)=(sean) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Sean22', 'pwdhash': 'pbkdf2:sha256:50000$O6qrRpsQ$78fe84e838c7ec91af4b55efc9fc702258e81c70f010174dd8db1f8e4347d628', 'lastname': u'Scott', 'email': u'hello52@hotmail.com', 'about_me': None, 'account_name': u'sean', 'last_seen': None}]
+2017-08-25 12:54:06,395 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 61, in signup
+    db.session.add(newuser) #add returned data to user table in the database
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_account_name_key"
+DETAIL:  Key (account_name)=(sean) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Sean5', 'pwdhash': 'pbkdf2:sha256:50000$ktjGpWTg$c9970256ac9e6ca86edd9ba827b1ebc3f2e951961289bab901eea2f4ca7fdd2e', 'lastname': u'Scott5', 'email': u'hello5@hotmail.com', 'about_me': None, 'account_name': u'sean', 'last_seen': None}]
+2017-08-25 12:55:25,259 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 61, in signup
+    db.session.add(newuser) #add returned data to user table in the database
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_account_name_key"
+DETAIL:  Key (account_name)=(sean) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Sean5', 'pwdhash': 'pbkdf2:sha256:50000$HSue0xJz$6768792a4ea7fcc20ee1101a730f32240d8cea9aaccba9f2070a0cd7ca459e7d', 'lastname': u'Scott5', 'email': u'hello5@hotmail.com', 'about_me': None, 'account_name': u'sean', 'last_seen': None}]
+2017-08-25 12:55:37,301 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 61, in signup
+    db.session.add(newuser) #add returned data to user table in the database
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_account_name_key"
+DETAIL:  Key (account_name)=(sean) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Sean5', 'pwdhash': 'pbkdf2:sha256:50000$YljuWLa5$3fdc37ba2ecaad1dbef864e69b198fb569f0f96e9b6cc9400bf91dd9c5b00295', 'lastname': u'Scott5', 'email': u'hello6@hotmail.com', 'about_me': None, 'account_name': u'sean', 'last_seen': None}]
+2017-08-25 13:40:32,383 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 61, in signup
+    db.session.add(newuser) #add returned data to user table in the database
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_account_name_key"
+DETAIL:  Key (account_name)=(sean) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Sean5', 'pwdhash': 'pbkdf2:sha256:50000$BFj0ltRr$abe9d32a8aa0a75dafb1213e2bf9a0558c51b7ba7db48055adbdbf38f1ecefb9', 'lastname': u'Scott5', 'email': u'hello60@hotmail.com', 'about_me': None, 'account_name': u'sean', 'last_seen': None}]
+2017-08-25 13:40:50,408 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-25 13:43:25,371 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 62, in signup
+    db.session.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_emial_key"
+DETAIL:  Key (email)=(hello78@hotmail.com) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'firstname': u'Sean ', 'pwdhash': 'pbkdf2:sha256:50000$eC28hLpj$423e11c20eb8fef901251fffb248a8d2518b27bdd7526d00602d39c6b0f01911', 'lastname': u'Scott', 'email': u'hello78@hotmail.com', 'about_me': None, 'account_name': u'sean3', 'last_seen': None}]
+2017-08-25 13:45:07,271 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-25 13:49:49,738 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-25 13:53:12,671 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 09:43:20,066 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 09:49:24,462 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 09:50:38,444 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 09:50:57,871 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 13:26:11,606 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 13:28:57,728 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 13:31:44,128 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 13:31:57,345 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 13:33:26,670 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 13:33:57,899 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
