@@ -641,3 +641,191 @@ DETAIL:  Key (email)=(hello78@hotmail.com) already exists.
 2017-08-26 13:31:57,345 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
 2017-08-26 13:33:26,670 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
 2017-08-26 13:33:57,899 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:33:10,873 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:41:12,013 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:45:20,721 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:45:56,375 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:46:31,171 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:47:52,961 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:48:46,132 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:50:50,131 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:51:17,280 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:51:21,547 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:53:17,632 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:53:34,354 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:56:48,539 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-26 19:59:07,082 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 12:59:32,497 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:00:45,497 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:00:58,871 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:01:16,266 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:02:06,752 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:05:30,158 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:05:53,065 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:06:22,698 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:06:30,236 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:09:16,199 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:09:57,969 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:10:19,317 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:11:52,602 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:14:16,205 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:17:47,437 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:19:08,876 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:19:19,944 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:22:21,839 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 13:23:32,661 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:09:33,296 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:10:01,457 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:10:27,916 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:11:22,566 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:11:42,872 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:13:37,079 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:13:44,655 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:15:32,112 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:17:05,652 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:20:52,532 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:21:57,811 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:28:45,530 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:51:10,457 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:51:35,274 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 15:58:41,800 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 16:00:23,491 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 16:00:52,807 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 16:01:00,651 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 16:01:23,318 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-27 16:01:33,071 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 09:52:14,107 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 09:55:05,936 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 64, in signup
+    db.session.add(user.follow(user))
+NameError: global name 'user' is not defined
+2017-08-28 09:55:29,452 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 62, in signup
+    db.session.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2171, in flush
+    self._flush(objects)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2291, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2255, in _flush
+    flush_context.execute()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 835, in _emit_insert_statements
+    execute(statement, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+IntegrityError: (psycopg2.IntegrityError) duplicate key value violates unique constraint "users_emial_key"
+DETAIL:  Key (email)=(sunquan@hotmail.com) already exists.
+ [SQL: 'INSERT INTO users (account_name, firstname, lastname, email, pwdhash, about_me, last_seen) VALUES (%(account_name)s, %(firstname)s, %(lastname)s, %(email)s, %(pwdhash)s, %(about_me)s, %(last_seen)s) RETURNING users.uid'] [parameters: {'pwdhash': 'pbkdf2:sha256:50000$1syoWFuC$69e12dc9839aad402457797d7166a5b19d4d20acc246399319c491a7d6d4c954', 'firstname': u'Quan', 'lastname': u'Sun', 'email': u'sunquan@hotmail.com', 'about_me': None, 'account_name': u'sunquan2', 'last_seen': None}]
+2017-08-28 09:56:31,706 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 64, in signup
+    db.session.add(user.follow(user))
+NameError: global name 'user' is not defined
+2017-08-28 09:57:15,439 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 09:57:45,521 ERROR: Exception on /signup [POST] [in /Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py:1560]
+Traceback (most recent call last):
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/Jason/Desktop/User_Login/venv/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Jason/Desktop/User_Login/app/routes.py", line 64, in signup
+    db.session.add(user.follow(user))
+NameError: global name 'user' is not defined
+2017-08-28 09:58:36,417 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 09:58:37,469 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 10:00:14,822 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 10:01:52,086 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 10:09:17,149 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 10:16:54,220 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 10:16:55,143 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 10:18:04,951 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 12:43:02,481 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 12:46:00,755 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 12:46:15,137 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 12:46:48,766 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 12:46:49,688 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 12:56:02,842 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 12:56:03,769 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:08:56,742 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:09:48,318 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:12:20,055 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:12:31,431 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:12:50,988 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:12:51,903 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:14:15,859 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:14:35,051 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:14:52,225 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:22:59,758 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 13:23:00,655 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 14:15:46,476 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 14:17:01,133 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 14:17:02,023 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 14:35:17,439 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]
+2017-08-28 14:35:18,420 INFO: Invite Startup [in /Users/Jason/Desktop/User_Login/app/__init__.py:20]

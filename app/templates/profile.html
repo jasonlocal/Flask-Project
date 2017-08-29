@@ -5,20 +5,58 @@
 <tr valign="top">
 	<td><img src="{{ user.avatar(128) }}"></td>
 	<td>
-	<h1>User: {{user.firstname}}!</h1>
+	<h1>User: {{user.account_name}}!</h1>
 	{% if user.about_me %} <p>{{user.about_me}}</p>{% endif %}
 	{% if user.last_seen %} <p><i>Last seen on: {{user.last_seen}}</i></p>{% endif %}
 	<!-- only show edit option to user's own edit page -->
-	{% if user.uid == g.user.uid %}<p><a href="{{ url_for('edit') }}">Edit</a></p>{% endif %}
-	
+	{% if user.uid == g.user.uid %}<p><a href="{{ url_for('edit') }}">Edit</a> 
+	{% elif not g.user.is_following(user) %}
+		<a href="{{ url_for('follow', account_name=user.account_name) }}">Follow</a>
+	{% else %}
+		<a href="{{ url_for('unfollow',account_name=user.account_name) }}">Unfollow</a>
+
+	{% endif %}
+	</p>
 	</td>
 </tr>
 </table>
 
 <hr>
-{% for post in posts %}
+<!-- only show the post to current logged in user's profile page -->
+{% if user.uid == g.user.uid %}
+<h1> Hi, {{g.user.account_name }}!</h1>
+<form action="" method="POST" name="post">
+	{{form.hidden_tag()}}
+	<table>
+		<tr>
+			<td> Say Something: </td>
+			<td> {{ form.post(size=30, maxlength=140) }}</td>
+			<td>
+			{% for error in form.post.errors %}
+			<span style="color: red;">[{{error}}]</span><br>
+			{% endfor %}
+			</td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Post!"></td>
+			<td></td>
+		</tr>
+
+		</table>
+</form>
+
+{% for post in posts.items %}
 
 	{% include 'post.html' %}
 
 {% endfor %}
+
+{% if posts.has_prev %}<a href="{{ url_for('profile',account_name=g.user.account_name, page=posts.prev_num) }}">&lt;&lt; Newer posts</a>{% endif %} | 
+{% if posts.has_next %}<a href="{{ url_for('profile',account_name=g.user.account_name, page=posts.next_num) }}">Older posts &gt;&gt;</a>{% endif %}
+
+
+{% endif %}
+
 {% endblock %}

@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request,session,redirect,url_for,flash,g,request,abort
-from model import User,Place,UserInfo
-from forms import SignupForm,LoginForm,AddressForm,UserInfoForm,EditForm
+from model import User,Place,UserInfo,UserPost
+from forms import SignupForm,LoginForm,AddressForm,UserInfoForm,EditForm,PostForm 
 from app import app, db,lm
 from flask_login import login_user,logout_user,current_user,login_required
 from datetime import datetime 
+from config import POSTS_PER_PAGE
 
 
 
@@ -59,6 +60,9 @@ def signup():
 			account_name=User.make_unique_account_name(form.account_name.data.strip()) # get unique account_name to eliminate the duplicate
 			newuser = User(account_name, form.first_name.data, form.last_name.data, form.email.data, form.password.data)
 			db.session.add(newuser) #add returned data to user table in the database 
+			db.session.commit()
+			# make user follow himself 
+			db.session.add(newuser.follow(newuser))
 			db.session.commit()
 
 			#session['email']=newuser.email
@@ -145,21 +149,31 @@ def home():
 	elif request.method=='GET':
 		return render_template("home.html", form=form, my_coordinates=my_coordinates,places=places)
 
-@app.route("/profile/<account_name>")
-def profile(account_name):
+@app.route("/profile/<account_name>",methods=['GET','POST'])
+@app.route('/profile/<account_name>/<int:page>',methods=['GET', 'POST'])
+def profile(account_name,page=1):
 	if not is_loggedin():
 		return redirect(url_for('login'))
 	user= User.query.filter_by(account_name=account_name).first()
 	if user == None:
 		flash('User %s not foound.' % account_name)
 		return redirect(url_for('home'))
-	posts=[
-	{'author': user, 'body' : 'Test post #1'},
-	{'author': user, 'body' : 'Test post #2'}
-	]
-	return render_template('profile.html',
-							user=user,
-							posts=posts)
+
+	form=PostForm()
+	if request.method=='POST':
+		if form.validate_on_submit():
+			post= UserPost(body=form.post.data, timestamp=datetime.utcnow(),author=g.user)
+			db.session.add(post)
+			db.session.commit()
+			flash('Your post is now live!')
+			# to void dupicated POST request when refresh the page after previous POST request 
+			return redirect(url_for('profile',account_name=g.user.account_name))
+	else:
+		posts= g.user.followed_posts().paginate(page,POSTS_PER_PAGE,False)
+		return render_template('profile.html',
+								user=user,
+								posts=posts,
+								form=form)
 
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
@@ -175,6 +189,46 @@ def edit():
 		form.about_me.data=g.user.about_me
 
 	return render_template('edit.html', form=form)
+
+@app.route('/follow/<account_name>')
+def follow(account_name):
+	if not is_loggedin():
+		return redirect(url_for('login'))
+	user= User.query.filter_by(account_name=account_name).first()
+	if user is None:
+		flash('User %s not found' % account_name)
+		return redirect(url_for('profile',account_name=g.user.account_name))
+	if user==g.user:
+		flash('you can\'t follow your self')
+		return redirect(url_for('profile',account_name=g.user.account_name))
+	u=g.user.follow(user)
+	if u is None:
+		flash('Can\'t follow ' + account_name + '.')
+		return redirect(url_for('profile', account_name=g.user.account_name))
+	db.session.add(u)
+	db.session.commit()
+	flash(' You are now following ' + account_name + '!')
+	return redirect(url_for('profile',account_name=account_name))
+
+@app.route('/unfollow/<account_name>')
+def unfollow(account_name):
+	if not is_loggedin():
+		return redirect(url_for('login'))
+	user= User.query.filter_by(account_name=account_name).first()
+	if user is None:
+		flash('User %s not found' % account_name)
+		return redirect(url_for('profile',account_name=g.user.account_name))
+	if user==g.user:
+		flash('you can\'t unfollow your self')
+		return redirect(url_for('profile',account_name=g.user.account_name))
+	u=g.user.unfollow(user)
+	if u is None:
+		flash('Can\'t unfollow ' + account_name + '.')
+		return redirect(url_for('profile', account_name=g.user.account_name))
+	db.session.add(u)
+	db.session.commit()
+	flash(' You are now unfollowing ' + account_name + '!')
+	return redirect(url_for('profile',account_name=account_name))
 
 
 @app.route("/logout")

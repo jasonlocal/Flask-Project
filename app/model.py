@@ -80,6 +80,25 @@ class User(db.Model):
 		except NameError:
 			return str(self.uid)
 
+	def follow(self,user):
+		if not self.is_following(user):
+			self.followed.append(user)
+			return self 
+	
+	def unfollow(self,user):
+		if self.is_following(user):
+			self.followed.remove(user)
+			return self 
+
+	def is_following(self,user):
+		"""check if the given user is followed by this """
+		return self.followed.filter(followers.c.followed_id == user.uid).count()>0
+
+	def followed_posts(self):
+		"""return all of this.followers user post table order from most recent to least recent"""
+		return UserPost.query.join(followers, (followers.c.followed_id==UserPost.user_id))\
+        .filter(followers.c.follower_id==self.uid)\
+		.order_by(UserPost.timestamp.desc())
 class UserPost(db.Model):
 	
 	__tablename__='userpost'
