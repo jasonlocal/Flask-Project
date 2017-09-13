@@ -1,10 +1,18 @@
 from hashlib import md5
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug import generate_password_hash, check_password_hash
-from app import db
+from app import app,db
 import geocoder 
 import urllib2
 import json
+import sys
+
+if sys.version_info>=(3, 0): # flask_wooshalchemy is not compatibale with python 3
+	enable_search=False
+else:
+	enable_search=True
+	import flask_whooshalchemy as whooshalchemy
+
 
 # create a auxiliary table to represent followers and folloees in database
 followers = db.Table('followers',
@@ -100,14 +108,14 @@ class User(db.Model):
         .filter(followers.c.follower_id==self.uid)\
 		.order_by(UserPost.timestamp.desc())
 class UserPost(db.Model):
-	
+	__searchable__=['body'] #Array with all the database fields that will be in the searchable index
 	__tablename__='userpost'
 	id= db.Column(db.Integer, primary_key=True)
 	body = db.Column(db.String(140))
 	timestamp=db.Column(db.DateTime)
 	user_id = db.Column(db.Integer,db.ForeignKey('users.uid'))
-
-
+if enable_search:
+	whooshalchemy.whoosh_index(app, UserPost) #initialize search index
 
 class UserInfo(db.Model):
 	"""represent UserInfo table in the database"""

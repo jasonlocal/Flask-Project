@@ -1,4 +1,4 @@
-
+#!venv/bin/python
 import unittest
 from app import app, db
 from app.model import User, UserPost

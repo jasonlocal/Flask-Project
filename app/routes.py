@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request,session,redirect,url_for,flash,g,request,abort
 from model import User,Place,UserInfo,UserPost
-from forms import SignupForm,LoginForm,AddressForm,UserInfoForm,EditForm,PostForm 
+from forms import SignupForm,LoginForm,AddressForm,UserInfoForm,EditForm,PostForm,SearchForm
 from app import app, db,lm
 from flask_login import login_user,logout_user,current_user,login_required
 from datetime import datetime 
-from config import POSTS_PER_PAGE
+from config import POSTS_PER_PAGE,MAX_SEARCH_RESULTS
+from .emails import follower_notification
 
 
 
@@ -30,6 +31,7 @@ def before_request():
 		g.user.last_seen=datetime.utcnow()
 		db.session.add(g.user)
 		db.session.commit()
+		g.search_form=SearchForm()
 
 def is_loggedin():
 	"""check if the user has already logged in """
@@ -150,7 +152,7 @@ def home():
 		return render_template("home.html", form=form, my_coordinates=my_coordinates,places=places)
 
 @app.route("/profile/<account_name>",methods=['GET','POST'])
-@app.route('/profile/<account_name>/<int:page>',methods=['GET', 'POST'])
+@app.route('/profile/<account_name>/<int:page>',methods=['GET', 'POST']) #determines number of posts in each page
 def profile(account_name,page=1):
 	if not is_loggedin():
 		return redirect(url_for('login'))
@@ -208,6 +210,7 @@ def follow(account_name):
 	db.session.add(u)
 	db.session.commit()
 	flash(' You are now following ' + account_name + '!')
+	follower_notification(user,g.user)
 	return redirect(url_for('profile',account_name=account_name))
 
 @app.route('/unfollow/<account_name>')
@@ -229,6 +232,21 @@ def unfollow(account_name):
 	db.session.commit()
 	flash(' You are now unfollowing ' + account_name + '!')
 	return redirect(url_for('profile',account_name=account_name))
+
+@app.route('/search',methods=['POST'])
+def search():
+	if not is_loggedin():
+		return redirect(url_for('login'))
+	if not g.search_form.validate_on_submit():
+		return redirect(url_for('home'))
+	return redirect(url_for('search_results',search=g.search_form.search.data))
+
+@app.route('/search_results/<search>')
+def search_results(search):
+	posts=UserPost.query.whoosh_search(search,MAX_SEARCH_RESULTS).all()
+	return render_template('search_results.html',
+							query=search,
+							posts=posts)
 
 
 @app.route("/logout")

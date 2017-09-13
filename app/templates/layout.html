@@ -24,6 +24,7 @@
       |<a href="{{url_for('login')}}"> Login </a>
       {% if g.user.is_authenticated %}
       | <a href="{{url_for('profile', account_name=g.user.account_name)}}">Profile</a>
+      |<form style="display: inline;" action="{{ url_for('search') }}" method="post" name="search">{{ g.search_form.hidden_tag() }}{{ g.search_form.search(size=20) }}<input type="submit" value="Search"></form>
       | <a href = "{{url_for('logout')}}">Logout</a>
       {% endif %}
       </div>
