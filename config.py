@@ -15,3 +15,11 @@ MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD')
 POSTS_PER_PAGE=3 
 #administrator list
 ADMINS=['zheng.xun@husky.neu.edu']
+
+# -*- coding: utf-8 -*-
+# ...
+# available languages
+LANGUAGES= {
+	'en' : 'English',
+	'zh_Hans' : 'Chinese'
+}

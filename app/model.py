@@ -107,6 +107,14 @@ class User(db.Model):
 		return UserPost.query.join(followers, (followers.c.followed_id==UserPost.user_id))\
         .filter(followers.c.follower_id==self.uid)\
 		.order_by(UserPost.timestamp.desc())
+
+	@staticmethod
+	def make_valid_account_name(account_name):
+		""" convert a given account_name to a valid version, this 
+			funtion is to prevent user enters an account_name that 
+			aliases with HTML elments """
+			
+		return re.sub('[^a-zA-Z0-9_\.]','',account_name)
 class UserPost(db.Model):
 	__searchable__=['body'] #Array with all the database fields that will be in the searchable index
 	__tablename__='userpost'

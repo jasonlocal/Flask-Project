@@ -4,11 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import ADMINS, MAIL_SERVER, MAIL_PORT, MAIL_USERNAME,MAIL_PASSWORD
 from flask_mail import Mail
+from flask_babel import Babel
 
 app = Flask(__name__)
 app.config.from_object('config')
 mail=Mail(app) # this is the object that connects to SMTP server 
-
+babel=Babel(app)
 """create log file in tmp dir, set upper bound of file size to 1mg, and upper bound of file 
 	back ups to 10"""
 if not app.debug:

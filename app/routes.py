@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request,session,redirect,url_for,flash,g,request,abort
 from model import User,Place,UserInfo,UserPost
 from forms import SignupForm,LoginForm,AddressForm,UserInfoForm,EditForm,PostForm,SearchForm
-from app import app, db,lm
+from app import app, db,lm,babel
 from flask_login import login_user,logout_user,current_user,login_required
 from datetime import datetime 
-from config import POSTS_PER_PAGE,MAX_SEARCH_RESULTS
+from config import POSTS_PER_PAGE,MAX_SEARCH_RESULTS,LANGUAGES
 from .emails import follower_notification
-
 
 
 #app = Flask(__name__)
@@ -16,6 +15,11 @@ from .emails import follower_notification
 #db.init_app(app)
 
 app.secret_key="development-key" 
+
+@babel.localeselector
+def get_locale():
+	return 'zh_Hans'
+	#request.accept_languages.best_match(LANGUAGES.keys())
 
 
 @lm.user_loader
@@ -59,6 +63,7 @@ def signup():
 		if form.validate() == False:
 			return render_template("signup.html",form=form)
 		else:
+			account_name=User.make_valid_account_name(form.account_name.data.strip())
 			account_name=User.make_unique_account_name(form.account_name.data.strip()) # get unique account_name to eliminate the duplicate
 			newuser = User(account_name, form.first_name.data, form.last_name.data, form.email.data, form.password.data)
 			db.session.add(newuser) #add returned data to user table in the database 
