@@ -75,3 +75,7 @@ function tableCreate() {
 
 
   tableCreate();
+
+$("input[name=command_typo]").change(function () {
+    tableCreate(folder_data1);
+})
